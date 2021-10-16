@@ -1,7 +1,5 @@
 import requests
 
-
-
 def get_response(api_url, crypto_coin, method):  
   if method == "ticker":
       response = get_ticker(api_url, crypto_coin, method)      
