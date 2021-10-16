@@ -1,0 +1,76 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  annotations:
+    deployment.kubernetes.io/revision: "3"
+    kubectl.kubernetes.io/last-applied-configuration: |
+      {"apiVersion":"apps/v1","kind":"Deployment","metadata":{"annotations":{},"creationTimestamp":null,"labels":{"app":"flask-app"},"name":"flask-app","namespace":"default"},"spec":{"replicas":1,"selector":{"matchLabels":{"app":"flask-app"}},"strategy":{},"template":{"metadata":{"creationTimestamp":null,"labels":{"app":"flask-app"}},"spec":{"containers":[{"env":[{"name":"VAR1","value":"VARIAVEL1"},{"name":"VAR2","value":"VARIAVEL2"},{"name":"NOME","value":"CRISTHIAN"},{"name":"SOBRENOME","value":"BICCA"}],"image":"cristhianbicca/flask-env:1.0.0","name":"flask-env","ports":[{"containerPort":5000}],"resources":{}}]}}},"status":{}}
+  creationTimestamp: "2021-08-23T02:03:50Z"
+  generation: 3
+  labels:
+    app: flask-app
+  name: flask-app
+  namespace: default
+  resourceVersion: "1149081"
+  uid: 0c70c511-7e02-4591-900d-6374d88416cb
+spec:
+  progressDeadlineSeconds: 600
+  replicas: 1
+  revisionHistoryLimit: 10
+  selector:
+    matchLabels:
+      app: flask-app
+  strategy:
+    rollingUpdate:
+      maxSurge: 25%
+      maxUnavailable: 25%
+    type: RollingUpdate
+  template:
+    metadata:
+      creationTimestamp: null
+      labels:
+        app: flask-app
+    spec:
+      containers:
+      - env:
+        - name: VAR1
+          value: VARIAVEL1
+        - name: VAR2
+          value: VARIAVEL2
+        - name: NOME
+          value: CRISTHIAN
+        - name: SOBRENOME
+          value: BICCA
+        image: cristhianbicca/flask-env:1.0.0
+        imagePullPolicy: IfNotPresent
+        name: flask-env
+        ports:
+        - containerPort: 5000
+          protocol: TCP
+        resources: {}
+        terminationMessagePath: /dev/termination-log
+        terminationMessagePolicy: File
+      dnsPolicy: ClusterFirst
+      restartPolicy: Always
+      schedulerName: default-scheduler
+      securityContext: {}
+      terminationGracePeriodSeconds: 30
+status:
+  availableReplicas: 1
+  conditions:
+  - lastTransitionTime: "2021-08-23T02:03:50Z"
+    lastUpdateTime: "2021-08-23T02:06:50Z"
+    message: ReplicaSet "flask-app-6f485f8fcf" has successfully progressed.
+    reason: NewReplicaSetAvailable
+    status: "True"
+    type: Progressing
+  - lastTransitionTime: "2021-10-16T02:54:14Z"
+    lastUpdateTime: "2021-10-16T02:54:14Z"
+    message: Deployment has minimum availability.
+    reason: MinimumReplicasAvailable
+    status: "True"
+    type: Available
+  observedGeneration: 3
+  readyReplicas: 1
+  replicas: 1
+  updatedReplicas: 1
