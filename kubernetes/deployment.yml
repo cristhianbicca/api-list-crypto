@@ -1,0 +1,24 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    app: api
+  name: api
+  namespace: default
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: api
+  template:
+    metadata:
+      labels:
+        app: api
+    spec:
+      containers:
+        - image: cristhianbicca/api-list-crypto:1.0.0
+          imagePullPolicy: IfNotPresent
+          name: api
+          ports:
+          - containerPort: 80
+            protocol: TCP

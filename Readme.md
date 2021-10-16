@@ -19,6 +19,7 @@ docker run -p 80:80 -d image-name:tag
 
 #### Swagger API in http://127.0.0.1/docs or YourIP/docs
 
+Inside kubernetes directory contains files to deploy in kubernetes structure.
 
 ## Examples
 
